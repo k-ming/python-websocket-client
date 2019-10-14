@@ -5,7 +5,7 @@ python 订阅websocket消息
 python -m pip install websocket-client
 
 ### 步骤详解
-'''python
+```python
 # -*- coding: utf-8 -*-#
 
 #------------------------------------
