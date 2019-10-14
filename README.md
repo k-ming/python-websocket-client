@@ -11,7 +11,7 @@ python -m pip install websocket-client
 #------------------------------------
 # Name:         connect
 # Description:  
-# Author:       17621158197
+# Author:       kingming
 # Date:         2019/10/11
 #------------------------------------
 
@@ -52,3 +52,11 @@ if __name__ == "__main__":
                               on_close = on_close)
     ws.on_open = on_open
     ws.run_forever(ping_interval=60, ping_timeout=30)
+   
+# 长连接关键方法：ws.run_forever(ping_interval=60,ping_timeout=5)
+# 如果不断开关闭websocket连接，会一直阻塞下去。另外这个函数带两个参数，如果传的话，启动心跳包发送。
+# ping_interval:自动发送“ping”命令，每个指定的时间(秒),如果设置为0，则不会自动发送。
+# ping_timeout:如果没有收到pong消息，则为超时(秒)。
+# ping_interval心跳发送间隔时间
+# ping_timeout 设置，发送ping到收到pong的超时时间
+# 我们看源代码，会发现这样一断代码：ping的超时时间，要大于ping间隔时间
