@@ -7,13 +7,13 @@ python -m pip install websocket-client
 ### 步骤详解
 '''python
 # -*- coding: utf-8 -*-#
-2
-3  #------------------------------------
-4  # Name:         connect
-5  # Description:  
-6  # Author:       17621158197
-7  # Date:         2019/10/11
-8  #------------------------------------
+
+#------------------------------------
+# Name:         connect
+# Description:  
+# Author:       17621158197
+# Date:         2019/10/11
+#------------------------------------
 
 import websocket
 # try:
