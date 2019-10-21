@@ -16,9 +16,8 @@ import time
 import threading
 from datetime import datetime
 
-
 def on_message(ws, message):
-    print(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3], message)
+    print(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'), message)
 
 def on_error(ws, error):
     print(error)
@@ -29,7 +28,7 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        # ws.send('\{"op":"call_service","service":"/driver_read_bms"\}')
+        ws.send("")
         time.sleep(1)
         # ws.close()
     # thread.start_new_thread(run,())
@@ -38,7 +37,8 @@ def on_open(ws):
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("ws://10.7.5.88:8089/gs-robot/notice/status",
+    api = input('请输入查询接口： \n')
+    ws = websocket.WebSocketApp("ws://10.7.5.88:8089"+api,
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)

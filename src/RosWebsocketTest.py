@@ -16,9 +16,8 @@ import time
 import threading
 from datetime import datetime
 
-
 def on_message(ws, message):
-    print(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3], message)
+    print(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'), message)
 
 def on_error(ws, error):
     print(error)
@@ -29,7 +28,7 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        parmas = input('please input parmas: \n')
+        parmas = input('请输入查询接口: \n')
         ws.send(parmas)
         time.sleep(1)
         # ws.close()
